@@ -1,30 +1,21 @@
 import { useState } from "react";
 
 const Home = () => {
+  
+  const [blogs,setBlogs] = useState([
+    {title: 'Java website for the students',body:'Java course',author:'Juhaied',id:1},
+    {title: 'C++ website',body:'Intro to C++ course',author:'Toufique',id:2},
+    {title: 'Dot net specialist',body:'From beginner to pro level',author:'Rayhan',id:3}
+  ]);
 
-    const[name,setName] = useState('mario');
-    const handleClick = () =>{
-        setName('Juhaied');
-    }
- 
   return (
     <div className="home">
-        <h2>Homepage</h2>
-        <p>{name}</p>
-        <button onClick={handleClick}> {/* This is function call without parameters*/}
-            Click
-        </button>
-
-        {/*
-
-         const handleClickAgian = (name) =>{
-                    console.log('handle click agained by '+name);
-                }
-
-        <button onClick={() => {handleClickAgian('nabid')}}> {/* This is function call with parameters*
-           Click
-        </button>   
-        */}
+       {blogs.map((blog) =>(
+        <div className="blog-preview" key={blog.id}>
+            <h2>{blog.title}</h2>
+            <p>Written by {blog.author}</p>
+        </div>
+       ))}
     </div>
   )
 }
