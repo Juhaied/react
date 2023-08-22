@@ -92,3 +92,6 @@
 .delete-button:hover {
   background-color: #da1d0c;
 }
+.blog-preview a{
+  text-decoration: none;
+}
