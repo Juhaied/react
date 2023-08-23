@@ -1,10 +1,13 @@
 import { useState } from "react"
+import {useHistory} from "react-router-dom"
 
 const Create = () => {
 
   const[title,setTitle] = useState('');
   const[body,setBody] = useState('');
   const[author,setAuthor] = useState('Mario');
+
+  const history = useHistory();
 
   //it is for showing loading
   const[isPending,setIsPending] = useState(false);
@@ -25,6 +28,8 @@ const Create = () => {
     }).then(()=>{
       console.log('New blog added');
       setIsPending(false);
+
+      history.push('/');
     });
 
     setTitle('')
